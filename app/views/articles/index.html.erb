@@ -1,0 +1,29 @@
+<h1>Articles listing page</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+    </tr>
+    <tr>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <td>
+          <%= article.title %>
+        </td>
+        <td>
+          <%= article.title %>
+        </td>
+        <td>
+          <%= link_to "Action", {} %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
