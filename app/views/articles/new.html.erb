@@ -1,4 +1,12 @@
 <h1>Create New Article</h1>
+<% if @article.errors.any? %>
+  <h4 style="color: red">The Following Errors are prevented from being saved</h4>
+  <% @article.errors.full_messages.each do |msg| %>
+    <ul>
+      <li><%= msg %></li>
+    </ul>
+  <% end %>
+<% end %>
 <%= form_with scope: :article, data: { turbo: false }, url: articles_path, local: true do |form| %>
   <p>
     <%= form.label :title %>
