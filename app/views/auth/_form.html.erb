@@ -1,0 +1,34 @@
+.
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <%= render 'shared/errors', obj: user %>
+      <%= form_with(model: user, local: true,data: { turbo: false }, class:'shadow p-3 mb-3 bg-info rounded' ) do |form| %>
+        <div class="form-group row">
+          <%= form.label :username, class: 'col-2 col-form-label text-white' %>
+          <div class="col-10">
+            <%= form.text_field :username, class: 'form-control shadow rounded', placeholder: "Enter your username" %>
+          </div>
+        </div>
+        <div class="form-group row mt-4">
+          <%= form.label :email, class: 'col-2 col-form-label text-white' %>
+          <div class="col-10" >
+            <%= form.email_field :email,  class: 'form-control shadow rounded', placeholder: "Enter your email" %>
+          </div>
+        </div>
+        <div class="form-group row mt-4">
+          <%= form.label :password, class: 'col-2 col-form-label text-white' %>
+          <div class="col-10" >
+            <%= form.password_field :password,  class: 'form-control shadow rounded', placeholder: "Enter your password" %>
+          </div>
+        </div>
+        <div class="from-group text-center mt-4">
+          <%= form.submit class:"btn btn-outline-light btn-lg" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="text-center mt-2 mb-5">
+      <%= link_to '[ Cancel and return To users ]', users_path, class:'text-info' %>
+    </div>
+  </div>
+</div>
