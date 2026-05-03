@@ -1,0 +1,31 @@
+<% if users.present? %>
+  <% users.each do |user| %>
+    <div class="container ">
+      <div class="row justify-content-md-center">
+        <div class="col-8 mt-4 ">
+          <div class="card text-center shadow bg-body rounded">
+            <div class="card-header fst-italic">
+              by <%= link_to user.username ,user, class: 'text-decoration-none' %>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">
+                <span class="rounded-circle shadow d-inline-block overflow-hidden text-decoration-none">
+                  <%= link_to  gravatar_for( user, size: 185) ,user, class: 'text-decoration-none' %>
+                </span>
+              </h5>
+              <p><%= link_to pluralize(user.articles.count, "articles"), user %></p>
+              <%= link_to  'View Profile', user_path(user), class:'btn btn-outline-success text-decoration-none' %>
+              <%= link_to  'Edit Profile', edit_user_path(user), class:'btn btn-outline-info text-decoration-none' %>
+              <%#=  link_to  'Delete', user_path(user),data:{ turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:'btn btn-outline-danger text-decoration-none' %>
+            </div>
+            <div class="card-footer text-body-secondary">
+              Joined <%= time_ago_in_words(user.created_at) %> ago
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <%= render 'layouts/users/no_user' %>
+<% end %>

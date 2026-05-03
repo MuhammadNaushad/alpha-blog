@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+def index
+  @users = User.all
+  render "auth/index"
+end
+
   def show
     @user = User.find(params[:id])
     render "auth/show"
@@ -13,7 +18,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.save
       flash[:notice] = "Welcome to Alpha Blog #{@user.username}, You have successfully sign up"
-      redirect_to articles_path
+      redirect_to users_path
     else
       render "auth/new"
     end
@@ -28,7 +33,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = "Account informations updated successfully!"
-      redirect_to users_path
+      redirect_to @user # user_path(@user)
     else
       render "auth/edit"
     end
