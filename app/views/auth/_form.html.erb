@@ -44,7 +44,7 @@
           </div>
         </div>
         <div class="from-group text-center mt-4">
-          <%= form.submit "Sign Up", class:"btn btn-outline-light btn-lg" %>
+          <%= form.submit (user.new_record? ? "Sign Up" : "Update Account"), class:"btn btn-outline-light btn-lg" %>
         </div>
       <% end %>
     </div>
