@@ -15,8 +15,10 @@
               </h5>
               <p><%= link_to pluralize(user.articles.count, "articles"), user %></p>
               <%= link_to  'View Profile', user_path(user), class:'btn btn-outline-success text-decoration-none' %>
-              <%= link_to  'Edit Profile', edit_user_path(user), class:'btn btn-outline-info text-decoration-none' %>
-              <%#=  link_to  'Delete', user_path(user),data:{ turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:'btn btn-outline-danger text-decoration-none' %>
+              <% if logged_in? && user == current_user %>
+                <%= link_to  'Edit Profile', edit_user_path(user), class:'btn btn-outline-info text-decoration-none' %>
+              <% end %>
+              <%#= link_to  'Delete', user_path(user),data:{ turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:'btn btn-outline-danger text-decoration-none' %>
             </div>
             <div class="card-footer text-body-secondary">
               Joined <%= time_ago_in_words(user.created_at) %> ago

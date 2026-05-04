@@ -1,8 +1,6 @@
-<% if notice.present? %>
   <% flash.each do |name, msg| %>
-    <div class="alert alert-<%= name == "notice" ? "success" : "danger" %> alert-dismissible fade show" role="alert" style="width: 70%; margin: 15px auto 0;"> <%# herb:disable erb-no-interpolated-class-names %>
-      <%= msg %>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-  <% end %>
+  <div class="alert alert-<%= name == "notice" ? "success" : "danger" %> alert-dismissible fade show" role="alert" style="width: 70%; margin: 15px auto 0;"> <%# herb:disable erb-no-interpolated-class-names %>
+    <%= msg %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
 <% end %>
