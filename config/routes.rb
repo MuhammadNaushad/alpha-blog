@@ -9,4 +9,5 @@ resources :users, except: [ :new ] # REST_FULL Routes
 get "login", to: "sessions#new"
 post "login", to: "sessions#create"
 delete "logout", to: "sessions#destroy"
+resources :categories, except: [ :destroy ]# REST_FULL Routes
 end
