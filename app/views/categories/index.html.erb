@@ -1,0 +1,25 @@
+<h1 class="text-center mt-4">Categories Listing Page</h1>
+<div class="flickr_pagination mt-4 mb-4">
+  <%= will_paginate @categories, :container => false %>
+</div>
+<% if @categories.present? %>
+  <% @categories.each do |category| %>
+    <div class="container mt-4 mb-4">
+      <div class="row justify-content-md-center">
+        <div class="col-8 mt-4 ">
+          <div class="card text-center shadow bg-body rounded">
+            <div class="card-body">
+              <h5 class="card-title"><%= link_to  category.name, category_path(category), class:'text-success text-decoration-none' %></h5>
+            </div>
+            <div class="card-footer text-body-secondary">
+              Created <%= time_ago_in_words(category.created_at) %> ago, Updated <%= time_ago_in_words(category.updated_at) %> ago
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+<div class="flickr_pagination mt-4 mb-4">
+  <%= will_paginate @categories, :container => false %>
+</div>
