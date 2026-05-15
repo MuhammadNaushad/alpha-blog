@@ -1,2 +1,5 @@
 <h1 class="text-center mt-4">Edit Category Alpha Blog</h1>
 <%= render 'form', category: @category %>
+<div class="text-center mt-2 mb-5">
+  <%= link_to '[ Cancel and return To Category ]', category_path(@category), class:'text-info' %>
+</div>
