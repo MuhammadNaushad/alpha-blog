@@ -16,6 +16,10 @@
             <%= form.text_area :description, rows: 10, class: 'form-control shadow rounded', placeholder: "Description of Article" %>
           </div>
         </div>
+        <div class="form-group row mt-4">
+          <%= form.label :category, class: 'col-2 col-form-label text-white' %>
+          <%= form.collection_select(:category_ids, Category.all, :id, :name, { prompt: "please select the category(can be empty)" }, { multiple: true, size: 3 , class:'custom-select shadow rounded'}) %>
+        </div>
         <div class="from-group text-center mt-4">
           <%= form.submit class:"btn btn-outline-light btn-lg" %>
         </div>
